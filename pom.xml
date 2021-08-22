@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+ 
+ <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+   
+
+    <modelVersion>4.0.0</modelVersion>
+    <version>3.1.122.10</version>
+    <packaging>jar</packaging>
+    <groupId>com.baxalta.pkc</groupId>
+
+    <artifactId>pkc-patients-3-1</artifactId>
+  <properties>
+    <spring.security.version>5.0.7.RELEASE</spring.security.version>
+    <springfox.version>2.6.1</springfox.version>
+    <spring.boot.version>2.0.8.RELEASE</spring.boot.version>
+    <spring.cloud.netflix.version>2.0.1.RELEASE</spring.cloud.netflix.version>
+    <clover-maven-plugin.version>4.3.1</clover-maven-plugin.version>
+    <sonar.junit.reportPaths>target/failsafe-reports, target/surefire-reports</sonar.junit.reportPaths>
+    <spring.cloud.version>Finchley.SR1</spring.cloud.version>
+    <spring.cloud.security.version>2.0.0.RELEASE</spring.cloud.security.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <powermock.version>2.0.0-beta.5</powermock.version>
+    <spring.cloud.config.version>2.0.1.RELEASE</spring.cloud.config.version>
+    <sonar.clover.reportPath>target/site/clover/clover.xml</sonar.clover.reportPath>
+    <tomcat.scope>compile</tomcat.scope>
+    <maven-jar-plugin.version>2.6</maven-jar-plugin.version>
+    <maven-failsafe-plugin.version>2.12.4</maven-failsafe-plugin.version>
+    <java.version>1.8</java.version>
+    <spring.version>5.0.4.RELEASE</spring.version>
+    <encoding>UTF-8</encoding>
+     <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>io.opentelemetry</groupId>
+        <artifactId>opentelemetry-bom</artifactId>
+        <version>1.5.0</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+    <dependencies>
+    
+     <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>${spring.boot.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+             <version>${spring.boot.version}</version>
+        </dependency>
+    <!-- jaeguer!! 
+		  <dependency>
+					<groupId>io.opentracing.contrib</groupId>
+					<artifactId>opentracing-spring-jaeger-cloud-starter</artifactId><version>3.1.2</version>
+		</dependency>
+
+        <dependency>
+		  <groupId>io.zipkin.brave</groupId>
+		  <artifactId>brave</artifactId>
+		  <version>4.19.0</version>
+		</dependency>
+
+		 <dependency>
+		  <groupId>io.opentracing.brave</groupId>
+		  <artifactId>brave-opentracing</artifactId>
+		  <version>0.31.3</version>
+		  
+		</dependency>
+
+		<dependency>
+			<groupId>io.logz.logback</groupId>
+			<artifactId>logzio-logback-appender</artifactId>
+			<version>1.0.24</version>
+		</dependency> 
+		
+		-->
+		  
+		<!--  
+        <dependency>
+            <groupId>com.baxalta.pkc</groupId>
+            <artifactId>baxidentity-3-1</artifactId>
+            <version>${bax.identity}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-log4j12</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-tx</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework.security</groupId>
+                    <artifactId>spring-security-config</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework.security</groupId>
+                    <artifactId>spring-security-web</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        --> 
+        <!--Spring boot
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-config</artifactId>
+            <version>${spring.cloud.config.version}</version>
+        </dependency>
+        -->
+        <!--  
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+        </dependency>
+        -->
+        
+ 
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+            <version>${spring.cloud.netflix.version}</version>
+        </dependency>
+        <!-- me ataja las peticiones
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-security</artifactId>
+            <version>${spring.cloud.security.version}</version>
+        </dependency>
+         -->
+        <!-- 
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+
+ 		-->
+ 		<!-- hay un error en startup por guava
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>${springfox.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>${springfox.version}</version>
+        </dependency>
+			 -->
+        <!-- security -->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-oauth2-client</artifactId>
+            <version>5.0.11.RELEASE</version>
+            
+        </dependency>
+         <!-- me ataja las peticiones
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+       
+        <dependency>
+            <groupId>org.springframework.security.oauth.boot</groupId>
+            <artifactId>spring-security-oauth2-autoconfigure</artifactId>
+            <version>2.0.1.RELEASE</version>
+        </dependency>
+ 		-->
+        <!-- Database 
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.connector.version}</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-jdbc</artifactId>
+            <version>8.0.26</version>
+        </dependency>
+		-->
+
+
+ 		
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.22</version>
+            
+        </dependency>
+<!--  
+        <dependency>
+            <groupId>org.springframework.retry</groupId>
+            <artifactId>spring-retry</artifactId>
+            <version>1.2.0.RELEASE</version>
+        </dependency>
+        
+        -->
+        
+        
+
+
+    <dependency>
+      <groupId>io.opentelemetry</groupId>
+      <artifactId>opentelemetry-api</artifactId>
+    </dependency>
+        
+     <!-- login exporter -->
+    <dependency>
+      <groupId>io.opentelemetry</groupId>
+      <artifactId>opentelemetry-exporter-logging</artifactId>
+    </dependency> 
+           
+    <dependency>
+      <groupId>io.opentelemetry</groupId>
+      <artifactId>opentelemetry-exporter-otlp</artifactId>
+    </dependency> 
+
+ 
+    <dependency>
+      <groupId>io.opentelemetry</groupId>
+      <artifactId>opentelemetry-sdk</artifactId>
+    </dependency>
+
+
+	<dependency>
+	    <groupId>io.opentelemetry</groupId>
+	    <artifactId>opentelemetry-sdk-extension-autoconfigure</artifactId>
+	    <!--  aun no existe
+	    <version>1.5.0</version>
+	    
+	    -->
+	   <version>1.5.0-alpha</version>
+	</dependency>
+	
+	<dependency>
+	    <groupId>io.grpc</groupId>
+	    <artifactId>grpc-netty-shaded</artifactId>
+	     <version>1.40.0</version>
+	</dependency>
+        
+    
+        
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring.boot.version}</version>
+            </plugin>
+        </plugins>
+    </build>
+
+
+</project>
