@@ -8,9 +8,9 @@
     <modelVersion>4.0.0</modelVersion>
     <version>3.1.122.10</version>
     <packaging>jar</packaging>
-    <groupId>com.baxalta.pkc</groupId>
+    <groupId>com.example</groupId>
 
-    <artifactId>pkc-patients-3-1</artifactId>
+    <artifactId>openTelemetryExample1</artifactId>
   <properties>
     <spring.security.version>5.0.7.RELEASE</spring.security.version>
     <springfox.version>2.6.1</springfox.version>

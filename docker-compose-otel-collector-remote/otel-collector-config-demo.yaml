@@ -2,12 +2,13 @@ receivers:
   otlp:
     protocols:
         grpc:
+        http:
 
 exporters:
   logging:
     loglevel: debug
   logzio:
-    account_token: "xxxxx"
+    account_token: "xx"
     region: "us"   
 
 

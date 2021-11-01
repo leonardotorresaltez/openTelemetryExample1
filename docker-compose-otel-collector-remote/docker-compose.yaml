@@ -18,4 +18,5 @@ services:
       - "55678"       # OpenCensus receiver
       - "55681:55679" # zpages extension
       - "4317:4317"   # otlp receiver
+      - "4318:4318"   # OpenTelemetry HTTP
 
